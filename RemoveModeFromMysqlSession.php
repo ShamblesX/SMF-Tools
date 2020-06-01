@@ -5,7 +5,11 @@ This provides a function to remove a supplied value of sql_mode from the MySql S
 
 The function is called from within an SMF sessiom, Eg:
 
-RemoveModeFromMysqlSession ( 'ONLY_GROUP_BY' );
+RemoveModeFromMysqlSession ( 'ONLY_FULL_GROUP_BY' );
+
+An alternative method might be:
+
+SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 */
 
